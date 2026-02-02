@@ -31,19 +31,26 @@ namespace Solar
         [Route("api/helloPost")]
         public async Task<IActionResult> CreateUserDto([FromBody] CreateUserDto userDto)
         {
-            if (userDto == null)
-            {
-                return BadRequest();
+            try
+            {                
+                if (userDto == null)
+                {
+                    return BadRequest();
+                }
+
+                var user = await _userService.CreateUserAsync(userDto);
+
+                return Created("", new
+                {
+                    user.Id,
+                    user.Name,
+                    user.Email
+                });
             }
-
-            var user = await _userService.CreateUserAsync(userDto);
-
-            return Created("", new
+            catch (UserAlreadyExistsException ex)
             {
-                user.Id,
-                user.Name,
-                user.Email
-            });
+                return Conflict(new { message = ex.Message });
+            }
         }
     }
     [ApiController]
