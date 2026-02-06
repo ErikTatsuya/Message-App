@@ -11,12 +11,11 @@ The project is built using:
 * **Frontend:** React
 * **Backend:** C# with ASP.NET
 * **Architecture:** Fullstack (separate frontend and backend)
-* **Authentication:** JWT (JSON Web Token)
+* **Authentication:**
 
 ## Features
 
 * User signup and login
-* JWT-based authentication
 * Protected routes
 * Direct messaging structure (in progress)
 * Client–server communication via REST API
@@ -58,7 +57,6 @@ This project is intended to practice:
 
 * React component structure and routing
 * API integration using HTTP requests
-* Authentication with JWT
 * Backend API development with ASP.NET
 * Fullstack application design
 * State management and protected routes
