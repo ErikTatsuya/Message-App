@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Solar.Dtos;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Identity.Data;
 
 namespace Solar
 {
@@ -56,7 +57,16 @@ namespace Solar
     [ApiController]
     public class Login : ControllerBase
     {
-        
+        public IActionResult Login(LoginRequestDto request)
+        {
+            var token = _loginService.Authenticate(request.Email, request.Password);
+
+            if (token == null)
+            {
+                return Unauthorized(new { message = "Invalid email or password" });
+            }
+            return Ok(new { token });
+        }
     }
 
     [ApiController]
