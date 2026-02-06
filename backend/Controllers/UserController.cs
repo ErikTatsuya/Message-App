@@ -54,6 +54,12 @@ namespace Solar
         }
     }
     [ApiController]
+    public class Login : ControllerBase
+    {
+        
+    }
+
+    [ApiController]
     public class GetAllUsers : ControllerBase
     {
         private readonly UserService _userService;
