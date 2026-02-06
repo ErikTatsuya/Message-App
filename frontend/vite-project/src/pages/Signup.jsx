@@ -7,11 +7,19 @@ function Signup() {
         <div className="header">
           <h2 className="text">Signup Page</h2>
         </div>
-        <div className="inputs">
-          <input type="text" name="" id="Email" placeholder="Email" />
-          <input type="password" name="" id="Password" placeholder="Password" />
-        </div>
-        <button className="login-btn">Signup</button>
+        <form>
+          <div className="inputs">
+            <input type="text" name="" id="" placeholder="Name" />
+            <input type="text" name="" id="Email" placeholder="Email" />
+            <input
+              type="password"
+              name=""
+              id="Password"
+              placeholder="Password"
+            />
+          </div>
+          <button className="login-btn">Signup</button>
+        </form>
         <p>
           Already have an account? <a href="/login">Login</a>
         </p>
