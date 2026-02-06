@@ -28,7 +28,7 @@ namespace Solar
         }
 
         [HttpPost]
-        [Route("api/helloPost")]
+        [Route("api/signup")]
         public async Task<IActionResult> CreateUserDto([FromBody] CreateUserDto userDto)
         {
             try

@@ -5,6 +5,16 @@ using Solar;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowFrontend", policy =>
+	{
+		policy.WithOrigins("http://localhost:5173")
+			  .AllowAnyHeader()
+			  .AllowAnyMethod();
+	});
+});
+
 // Register controllers before build
 builder.Services.AddControllers();
 
@@ -23,7 +33,8 @@ using (var scope = app.Services.CreateScope())
 	db.Database.EnsureCreated();
 }
 
-// mapear os controllers
+app.UseCors("AllowFrontend");
+
 app.MapControllers();
 
 app.Run();
