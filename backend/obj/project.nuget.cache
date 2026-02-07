@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fgIdfiUskm5LvBwCU1IO1IgXZ1wLIzYwdLf/E4xrWybzXHFht2sPzAyoR8TIiYVUMoyH8U6UoRLnIy5uuntHmQ==",
+  "dgSpecHash": "8b+YbY90eDOUJNGoVv+nbuIdAG1ka7HM8T9MTdDEf45d8bBKhTGnStrt5kvU3nCeeyDhnpyzvoQY3pYxmuJsOQ==",
   "success": true,
   "projectFilePath": "/home/erik/Projetos/Messages_app/backend/Solar.csproj",
   "expectedPackageFiles": [
@@ -22,10 +22,15 @@
     "/home/erik/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "/home/erik/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/home/erik/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/erik/.nuget/packages/microsoft.identitymodel.abstractions/8.15.0/microsoft.identitymodel.abstractions.8.15.0.nupkg.sha512",
+    "/home/erik/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.15.0/microsoft.identitymodel.jsonwebtokens.8.15.0.nupkg.sha512",
+    "/home/erik/.nuget/packages/microsoft.identitymodel.logging/8.15.0/microsoft.identitymodel.logging.8.15.0.nupkg.sha512",
+    "/home/erik/.nuget/packages/microsoft.identitymodel.tokens/8.15.0/microsoft.identitymodel.tokens.8.15.0.nupkg.sha512",
     "/home/erik/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/home/erik/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/home/erik/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "/home/erik/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.6/sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
+    "/home/erik/.nuget/packages/system.identitymodel.tokens.jwt/8.15.0/system.identitymodel.tokens.jwt.8.15.0.nupkg.sha512",
     "/home/erik/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/erik/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/home/erik/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512"

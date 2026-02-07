@@ -57,9 +57,10 @@ namespace Solar
     [ApiController]
     public class Login : ControllerBase
     {
-        public IActionResult Login(LoginRequestDto request)
+        private readonly LoginService? _loginService;
+        public IActionResult LoginController(LoginRequestDto request)
         {
-            var token = _loginService.Authenticate(request.Email, request.Password);
+            var token = _loginService?.Login(request.Email, request.Password);
 
             if (token == null)
             {

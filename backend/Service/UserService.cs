@@ -1,8 +1,13 @@
 using Solar.Dtos;
+using Solar.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Solar
-{// Exceção de domínio para usuário já existente
+{
     public class UserAlreadyExistsException : Exception
     {
         public UserAlreadyExistsException() { }
@@ -63,6 +68,58 @@ namespace Solar
                     Email = u.Email
                 })
                 .ToListAsync();
+        }
+    }
+    public class LoginService
+    {
+        private readonly IUserRepository _userRepository;
+        private readonly IConfiguration _configuration;
+
+        public LoginService(IUserRepository userRepository, IConfiguration configuration)
+        {
+            _userRepository = userRepository;
+            _configuration = configuration;
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            };
+
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? throw new InvalidOperationException("Jwt:Key not configured"))
+            );
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        public string? Login(string email, string password)
+        {
+            var user = _userRepository.GetByEmail(email);
+
+            if (user == null)
+            {
+                return null;
+            }
+
+            if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                return null;
+            }
+
+            return GenerateJwtToken(user);
         }
     }
 }
